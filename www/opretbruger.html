@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Opret</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <link href="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="plugins/Croppie/croppie.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+
+
+    <script src="js/jquery.2.1.1.min.js"></script>
+    <script src="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+    <!--<script src="https://jsconsole.com/js/remote.js?dd50c87e-d8a4-4077-af6b-3b33bbe1efa1"></script>--> <!--For phoneGap debugging-->
+
+    <style type="text/css">
+        #opretbruger input[type=date] {
+            padding-left: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <div data-role="page" id="opretbruger" class="opret" data-title="Opret bruger" data-dom-cache="true" data-prev="opretlogin" data-next="opretcv1" data-theme="false">
+        <div role="main" class="ui-content">
+
+            <div class="row">
+
+                <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-3 cont">
+
+                    <form class="form" onsubmit="return AddSpot(), false;">
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="text" id="Fornavn" class="md-input form-control" required>
+                            <label for="Fornavn">Fornavn</label>
+                        </div>
+
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="text" id="Efternavn" class="md-input form-control" required>
+                            <label for="Efternavn">Efternavn</label>
+                        </div>
+
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="number" id="Tlf" class="md-input form-control" required>
+                            <label for="Tlf">Telefonnummer</label>
+                        </div>
+
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="text" id="Adresse" class="md-input form-control" required>
+                            <label for="Adresse">Adresse</label>
+                        </div>
+
+
+
+
+                        <div class="sex">
+
+                            <div class="btn-group" data-toggle="buttons">
+
+                                <label class="btn btn-primary radButton">
+                                    <input data-role="none" type="radio" name="Kon" id="Mand" value="0" autocomplete="off"> Mand
+                                </label>
+                                <label class="btn btn-primary radButton">
+                                    <input data-role="none" type="radio" name="Kon" id="Kvinde" value="1" autocomplete="off"> Kvinde
+                                </label>
+                            </div>
+
+
+
+                        </div>
+                        <div>
+                            <label for="date">Fødselsdag</label>
+                            <input type="date" data-clear-btn="true" name="date" id="date" data-role="none" required />
+
+                        </div>
+                    </form>
+                    <div>
+
+                        <input data-role="none" id="gem" class="button center-block gemBut" type="submit" value="Næste" />
+
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+
+    </div><!-- /page -->
+
+
+</body>
+
+</html>

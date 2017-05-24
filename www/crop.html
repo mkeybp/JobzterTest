@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link href="plugins/Croppie/croppie.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="js/jquery.2.1.1.min.js"></script>
+    <script src="plugins/Croppie/croppie.js"></script>
+    <script src="js/hermiteresize.js"></script>
+    <script src="plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xd-8 text-center">
+                <form action="test-image.php" id="form" method="post">
+                    <div class="form-group">
+
+                    </div>
+                    <div id="upload-demo"></div>
+                    <input type="file" id="upload" value="Choose a file">
+                    <a href="#" class="upload-result">Send</a>
+                    <br />
+                    <canvas id="cc"></canvas>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $uploadCrop;
+
+            function readFile(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $uploadCrop.croppie('bind', {
+
+                            url: e.target.result
+                        });
+                        $('.upload-demo').addClass('ready');
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+
+            }
+
+            $uploadCrop = $('#upload-demo').croppie({
+                viewport: {
+                    width: 180 - 4,// 4 is the border of cropppie
+                    height: 180 - 4,
+                },
+                boundary: {
+                    height: 500
+                }
+            });
+
+            $('#upload').on('change', function () { readFile(this);});
+            $('.upload-result').on('click', function (ev) {
+                $uploadCrop.croppie('result', {
+                    type: 'canvas',
+                    size: 'original'
+
+                }).then(function (resp) {
+                    //$('form').append('<img src="' + resp + '" />')
+                    var canvas = document.getElementById("cc");
+                    var ctx = canvas.getContext("2d");
+                    var resizeWidth = 180;
+                    var resizeHeight = 180;
+                    var img = new Image();
+                    img.crossOrigin = "Anonymous"; //cors support
+                    img.onload = function () {
+                        var W = img.width;
+                        var H = img.height;
+                        canvas.width = W;
+                        canvas.height = H;
+                        ctx.drawImage(img, 0, 0); //draw image
+                        var time1 = Date.now();
+
+                        //resize
+                        resample_single(canvas, resizeWidth, resizeHeight, true);
+                    }
+                    img.src = resp;
+                });
+
+            });
+
+        });
+    </script>
+</body>
+</html>

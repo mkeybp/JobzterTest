@@ -1,0 +1,182 @@
+﻿
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: gray;
+}
+
+.ui-page a,
+.ui-page a:active,
+.ui-page a:visited,
+.ui-page a:hover {
+    text-decoration: none;
+    color: gray;
+    font-weight: normal;
+}
+
+/*Input start*/
+
+input:not([type=radio]) {
+    font-size: 16px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+}
+*:focus {
+    outline: none !important;
+}
+input[type=submit] {
+    padding: 6px;
+    width: 80%;
+    margin-bottom: 0px;
+    border: none;
+    background: -webkit-linear-gradient(top, #ff4b00 0%, #ff4b00 49%, #ff4b00 50%, #c92a29 100%);
+    color: white;
+}
+input[type=date],
+.md-input:focus {
+    border: none;
+    border-bottom: 1px solid #ff4b00;
+    font-size: 14px;
+}
+
+    .md-input:focus + label, .md-input.md-hastext + label {
+        color: #ff4b00;
+        top: 0%;
+        font-size: 1em;
+    }
+
+.md-input-wrap {
+    margin-top: 20px;
+    padding-top: 10px;
+    position: relative;
+    margin-bottom:10%;
+}
+
+    .md-input-wrap label {
+        left: 0;
+        position: absolute;
+        top: calc(50%);
+        transition: all 0.15s ease-in-out 0s;
+        color: gray;
+        font-size:14px;
+    }
+
+
+    .md-input-wrap::before {
+        background-color: #ff4b00;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+    }
+
+    .md-input-wrap.md-hastext::after {
+        width: 100%;
+    }
+
+    .md-input-wrap .md-input {
+        width: 100%;
+        border: 0;
+        height: 30px;
+    }
+
+/*Bootstrap .form-control overwrite*/
+.form-control, .form-control:focus {
+    background-color: rgba(255, 255, 255, 0);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/*Opretbruger style*/
+/*Radio button style*/
+#opretbruger .sex .btn-group{
+    display:block
+}        
+#opretbruger .sex .radButton {
+            width: 50%;
+            background-color:#ff4b00;
+            border-color: white;
+        }
+
+/*Radio button style end*/
+
+
+/*Opretbruger style end*/
+
+/*Input end*/
+
+
+
+/*Opret start*/
+#opretcv1 .uddButton, #opretcv1 .erfaringButton, #opretcv2 .jobButton, #opretcv2 .sprogButton {
+    display: block;
+    margin: 7% auto 5% auto;
+    border-bottom: 1px solid #ff4b00;
+    width: 100%;
+    text-align: center
+}
+
+#opretcv1 #Uddannelse.modal.in .modal-dialog, #opretcv1 #Erfaringer.modal.in .modal-dialog {
+    transform: translate(0, -50%);
+}
+
+#opretcv1 #Uddannelse .modal-dialog, #opretcv1 #Erfaringer .modal-dialog {
+    top: 50%;
+}
+
+#opretcv1 .UddDato label, #opretcv1 .ErfaringDato label {
+    font-size: 14px;
+}
+
+#opretcv1 input[type=date] {
+    font-size: 14px;
+    padding: 0;
+}
+
+#opretcv1 #AddUddannelse, #opretcv1 #AddErfaring, #opretcv2 #AddsocKompetence, #opretcv2 #AddfagKompetence {
+    background-color: rgba(255,255,255,0);
+    border: none;
+    outline: none;
+    font-weight: normal;
+    font-size: 14px;
+    width: 35%;
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#opretcv1 form h4, #opretcv2 form h4 {
+    margin-top: 10%;
+}
+
+#opretcv1 .firmaStilling .md-input-wrap, #opretcv2 .md-input-wrap {
+    margin-top: 0;
+}
+
+/*Opret end*/
+
+/*Autofill style*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 0px inset;
+  transition: background-color 5000s ease-in-out 0s; }
+
+/*Autofill style end*/
+
+.fade.in { /*Prevents JQuery mobile from interfering with Bootstrap .fade*/
+    -webkit-animation-name: none;
+    -moz-animation-name: none;
+    animation-name: none;
+}

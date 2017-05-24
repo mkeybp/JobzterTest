@@ -1,0 +1,118 @@
+﻿
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: gray;
+}
+
+.ui-page a,
+.ui-page a:active,
+.ui-page a:visited,
+.ui-page a:hover {
+    text-decoration: none;
+    color: gray;
+    font-weight: normal;
+}
+
+/*Input start*/
+
+input {
+    font-size: 16px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+}
+*:focus {
+    outline: none !important;
+}
+input[type=submit] {
+    padding: 6px;
+    width: 80%;
+    margin-bottom: 0px;
+    border: none;
+    background: -webkit-linear-gradient(top, #ff4b00 0%, #ff4b00 49%, #ff4b00 50%, #c92a29 100%);
+    color: white;
+}
+input[type=date],
+.md-input:focus  {
+    border:none;
+    border-bottom:1px solid #ff4b00;
+}
+
+    .md-input:focus + label, .md-input.md-hastext + label {
+        color: #ff4b00;
+        top: 0%;
+        font-size: 1em;
+    }
+
+.md-input-wrap {
+    margin-top: 20px;
+    padding-top: 10px;
+    position: relative;
+    margin-bottom:10%;
+}
+
+    .md-input-wrap label {
+        left: 0;
+        position: absolute;
+        top: calc(50%);
+        transition: all 0.15s ease-in-out 0s;
+        color: gray;
+    }
+
+
+    .md-input-wrap::before {
+        background-color: #ff4b00;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+    }
+
+    .md-input-wrap.md-hastext::after {
+        width: 100%;
+    }
+
+    .md-input-wrap .md-input {
+        width: 100%;
+        border: 0;
+        height: 30px;
+    }
+
+/*Bootstrap .form-control overwrite*/
+.form-control, .form-control:focus {
+    background-color: rgba(255, 255, 255, 0);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/*Opretbruger style*/
+/*Radio button style*/
+#opretbruger .sex .btn-group{
+    display:block
+}        
+#opretbruger .sex .radButton {
+            width: 50%;
+            background-color:#ff4b00;
+            /*background: -webkit-linear-gradient(top,#ff4b00 0%,#ff4b00 49%,#ff4b00 50%,#c92a29 100%);*/
+            border-color: white;
+        }
+
+/*Radio button style end*/
+
+
+/*Opretbruger style end*/
+
+/*Input end*/
+
+
+
+.fade.in { /*Prevents JQuery mobile from interfering with Bootstrap .fade*/
+    -webkit-animation-name: none;
+    -moz-animation-name: none;
+    animation-name: none;
+}

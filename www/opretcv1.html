@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Opret</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <link href="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="plugins/Croppie/croppie.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+
+
+    <script src="js/jquery.2.1.1.min.js"></script>
+    <script src="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+    <!--<script src="https://jsconsole.com/js/remote.js?dd50c87e-d8a4-4077-af6b-3b33bbe1efa1"></script>--> <!--For phoneGap debugging-->
+
+    <style type="text/css">
+        /*Modal*/
+
+    </style>
+
+</head>
+<body>
+
+
+    <div data-role="page" id="opretcv1" class="opret" data-title="Opret cv" data-dom-cache="true" data-prev="opretbruger" data-next="opretcv2" data-theme="false">
+
+        <div role="main" class="ui-content">
+
+            <div class="row">
+
+                <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-3 cont">
+
+                    <form class="form" onsubmit="return AddSpot(), false;">
+
+                        <!--Uddannelse start-->
+                        <h4 class="text-center">Uddannelse</h4>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="#Uddannelse" class="uddButton" data-toggle="modal">Uddannelse/uddannelses niveau</a>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="Uddannelse" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" data-role="none" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="center">
+                                            <!--Indsæt uddannelse-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Uddannelses date-->
+                        <div class="row UddDato">
+                            <div class="col-xs-6">
+                                <label for="StartDato">Fra dato</label>
+                                <input type="date" data-clear-btn="false" name="date" id="StartDato" data-role="none" value="Dag/Måned/År" />
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="SlutDato">Til dato</label>
+                                <input type="date" data-clear-btn="false" name="date" id="SlutDato" data-role="none" value="Dag/Måned/År" />
+
+                            </div>
+                        </div>
+                        <button id="AddUddannelse" class="center-block">Tilføj flere</button>
+                        
+                        <!--Uddannelse end-->
+
+                        <!--Erhvervserfaring start-->
+
+                        <h4 class="text-center">Erhvervserfaring</h4>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="#Erfaringer" class="erfaringButton" data-toggle="modal">Kategori</a>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="Erfaringer" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" data-role="none" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="center">
+                                            <!--Indsæt Erfaring-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Firma/Stilling-->
+                        <div class="row firmaStilling">
+                            <div class="col-xs-6">
+                                <div class="md-input-wrap">
+                                    <input data-role="none" type="text" id="Firmanavn" class="md-input form-control">
+                                    <label for="Firmanavn">Firmanavn</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="md-input-wrap">
+                                    <input data-role="none" type="text" id="Stilling" class="md-input form-control">
+                                    <label for="Stilling">Stilling</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Erfarings date-->
+
+                        <div class="row ErfaringDato">
+                            <div class="col-xs-6">
+                                <label for="StartDato">Fra dato</label>
+                                <input type="date" data-clear-btn="false" name="date" id="StartDato" data-role="none" value="Dag/Måned/År" />
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="SlutDato">Til dato</label>
+                                <input type="date" data-clear-btn="false" name="date" id="SlutDato" data-role="none" value="Dag/Måned/År" />
+
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <button id="AddErfaring" class="center-block">Tilføj flere</button>
+                    <!--Erhvervserfaring end-->
+                    <div>
+                        <input data-role="none" id="gem" class="button center-block gemBut" type="submit" value="Næste" />
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /content -->
+
+    </div><!-- /page -->
+
+
+</body>
+
+</html>

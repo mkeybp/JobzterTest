@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Opret</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <link href="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="plugins/Croppie/croppie.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+
+
+    <script src="js/jquery.2.1.1.min.js"></script>
+    <script src="plugins/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script src="plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="js/swipe.js"></script>
+    <script src="js/opret.js"></script>
+
+    <!--<script src="https://jsconsole.com/js/remote.js?dd50c87e-d8a4-4077-af6b-3b33bbe1efa1"></script>--> <!--For phoneGap debugging-->
+    <style>
+        /*OPRET-MULTIPAGES*/
+        .opret.ui-page {
+            height: 100vh !important;
+            min-height: 100vh !important;
+        }
+
+        .ui-header.ui-header-fixed {
+            top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .ui-header {
+            height: 40px;
+            border: none;
+            background: -webkit-linear-gradient(top,#ff4b00 0%,#ff4b00 49%,#ff4b00 50%,#c92a29 100%);
+            text-align: center;
+            opacity: 1;
+        }
+
+            .ui-header .header-logo {
+                position: absolute;
+                top: 50%;
+                -webkit-transform:translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+                
+                width: 150px;
+            }
+
+            .ui-header a {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                -webkit-transform:translateY(-50%);
+                transform: translateY(-50%);
+                margin-left: 20px;
+                color: white !important;
+                font-size: 25px;
+            }
+
+        #opretlogin, #opretbruger, #opretcv1, #opretcv2, #opretvideocv {
+            background-repeat: no-repeat;
+            background-image: url('GFX/opretWhiteBg.jpg');
+        }
+        /* Background settings */
+                #opretlogin {
+            background-position: 0 center;
+        }
+        #opretbruger {
+            background-position: -100vw center;
+        }
+
+        #opretcv1 {
+            background-position: -200vw center;
+        }
+
+        #opretcv2 {
+            background-position: -300vw center;
+        }
+
+        #opretvideocv {
+            background-position: -400vw center;
+        }
+
+        /*opretbruger*/
+        #opretlogin .profilPic-container {
+            position: relative;
+            display: inline-block;
+        }
+
+            #opretlogin .profilPic-container .profilPic {
+                box-shadow: 0px 0px 10px black;
+                max-height: 180px;
+                margin-bottom: 20px;
+            }
+
+            #opretlogin .profilPic-container .profilPic-Button {
+                position: absolute;
+                bottom: 15%;
+                right: 15%;
+                color:#ff4b00;
+            }
+    </style>
+    <script type="text/javascript">
+        function addpasswordTjek() {
+            var password = document.getElementById("password");
+            var passwordTjek = document.getElementById("passwordTjek");
+
+            if (password.value != passwordTjek.value) {
+                alert("Adgangskoderne er ikke ens");
+            } else {
+                curatio.webdb.addpasswordTjek(password.value);
+                password.value = "";
+                alert("Your Registration was successfull");
+                setTimeout(function () {
+                    window.location.href = "opretcv1.html";
+                }, 1000);
+            }
+        }</script>
+</head>
+<body>
+    <div id="header" data-role="header" data-id="header" data-position="fixed" data-tap-toggle="false" data-enhance="false">
+        <div data-role="none">
+            <a href="" class="prev">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </a>
+            <img class="header-logo" src="GFX/whiteLogoNoEff2.png" />
+        </div>
+    </div> <!--/header-->
+
+    <div data-role="page" id="opretlogin" class="opret" data-title="Opret Login" data-dom-cache="true" data-next="opretbruger" data-theme="false">
+        <div role="main" class="ui-content">
+            <form class="form" onsubmit="return LoginVal(), false;">
+                <div class="row">
+                    <div class="col-xs-offset-3 col-xs-6 text-center">
+                        <div class="profilPic-container">
+                            <img id="myImage" src="GFX/noimage.jpg" class="img-responsive center-block profilPic img-circle" />
+                            <span class="profilPic-Button">
+                                <input data-role="none" type="file" id="Pb" class="hidden" name="PB" onchange="previewFile()" />
+                                <label for="Pb">
+                                    <span class="fa fa-pencil-square fa-2x"></span>
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-3 cont">
+
+
+
+
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="email" id="Email" class="md-input form-control" required>
+                            <label for="Email">Email</label>
+                        </div>
+
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="password" id="Adgangskode" class="md-input form-control" required>
+                            <label for="Adgangskode">Adgangskode</label>
+                        </div>
+                        <div class="md-input-wrap">
+                            <input data-role="none" type="password" id="passwordTjek" class="md-input form-control" required>
+                            <label for="passwordTjek">Bekræft adgangskode</label>
+                        </div>
+
+                        <div>
+                            <input data-role="none" id="gem" class="button center-block gemBut next" type="submit" value="Næste" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div><!-- /content -->
+
+    </div><!-- /page -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+
+
+    <script>
+
+        document.addEventListener("backbutton", onBackKeyDown, false);
+
+        function onBackKeyDown() {
+
+            //navigator.camera.getPicture(onSuccess, onFail, {
+            //    quality: 100,
+            //    correctOrientation: 1,
+            //    destinationType: Camera.DestinationType.FILE_URI,
+            //    cameraDirection: Camera.Direction.FRONT
+
+            //});
+
+            //function onSuccess(imageURI) {
+            //    var image = document.getElementById('myImage');
+            //    image.src = imageURI;
+            //}
+
+            //function onFail(message) {
+            //    alert('Failed because: ' + message);
+            //}
+
+
+            // Handle the back button and if current page is homepage ( $.mobile.activePage in jquery mobile ) exit from application with: navigator.app.exitApp();
+        }
+
+
+
+
+    </script>
+    <!--Input transform jQuery-->
+    <script type="text/javascript">
+        var input = $(".md-input");
+        input.on("blur", function () {
+            if ($(this).parent().hasClass("md-input-wrap")) {
+                if ($(this).val() !== '') {
+                    $(this).addClass('md-hastext');
+                    $(this).parent(".md-input-wrap").addClass("md-hastext");
+                } else {
+                    $(this).removeClass('md-hastext');
+                    $(this).parent(".md-input-wrap").removeClass("md-hastext");
+                }
+            }
+        });
+        input.on("focus", function () {
+            if ($(this).parent().hasClass("md-input-wrap")) {
+                $(this).parent(".md-input-wrap").addClass("md-hastext");
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
